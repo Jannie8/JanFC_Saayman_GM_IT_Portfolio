@@ -89,11 +89,12 @@
 
         <!-- Tabs -->
         <div class="tabs">
-          <button class="tab-btn active" data-tab="tab-eindhoven">Future Tech – Eindhoven</button>
-          <button class="tab-btn" data-tab="tab-lleida">UX Design – Lleida</button>
-          <button class="tab-btn" data-tab="tab-hagenberg">Internet of Things – Hagenberg</button>
-          <button class="tab-btn" data-tab="tab-datasci">Data Science – South Africa</button>
+          <button class="tab-btn active" data-tab="tab-eindhoven" type="button">Future Tech – Eindhoven</button>
+          <button class="tab-btn" data-tab="tab-lleida" type="button">UX Design – Lleida</button>
+          <button class="tab-btn" data-tab="tab-hagenberg" type="button">Internet of Things – Hagenberg</button>
+          <button class="tab-btn" data-tab="tab-datasci" type="button">Data Science – South Africa</button>
         </div>
+
 
         <!-- Panels -->
         <div class="tab-panels">
@@ -412,23 +413,27 @@
                 </div>
               </div>
             </article>
+          
+            <div>
+            <iframe src="https://docs.google.com/spreadsheets/d/e/2PACX-1vRb9z8DFQhrpZ_eVC_cmbyET2edmCyiHk54hWniqbCn61j4HXmFqjA3P_lDni0JorzQefc_znigQEaK/pubhtml?widget=true&amp;headers=false" width="100%" height="600" style="border:0" allowfullscreen></iframe>
+            </div>
           </div>
 
           <!-- Lleida -->
           <div id="tab-lleida" class="tab-panel hidden">
-            <h3>UX Design – Lleida</h3>
+            
             <p>[Paste your Lleida reflections here.]</p>
           </div>
 
           <!-- Hagenberg -->
           <div id="tab-hagenberg" class="tab-panel hidden">
-            <h3>Internet of Things – Hagenberg</h3>
+            
             <p>[Paste your Hagenberg reflections here.]</p>
           </div>
 
           <!-- Data Science -->
           <div id="tab-datasci" class="tab-panel hidden">
-            <h3>Data Science – South Africa</h3>
+            
             <p>[Paste your Data Science reflections here.]</p>
           </div>
         </div>
@@ -466,17 +471,41 @@
 
   <!-- Tab switcher -->
   <script>
+  document.addEventListener('DOMContentLoaded', () => {
     const tabButtons = document.querySelectorAll('.tab-btn');
     const tabPanels  = document.querySelectorAll('.tab-panel');
+
+    function showTab(id) {
+      tabPanels.forEach(p => {
+        p.classList.add('hidden');
+        p.style.display = 'none';
+      });
+      const target = document.getElementById(id);
+      if (target) {
+        target.classList.remove('hidden');
+        target.style.display = 'block';
+      } else {
+        console.warn('Tab panel not found:', id);
+      }
+    }
+
     tabButtons.forEach(btn => {
+      // extra safety: explicit button type
+      if (!btn.hasAttribute('type')) btn.setAttribute('type', 'button');
+
       btn.addEventListener('click', () => {
         tabButtons.forEach(b => b.classList.remove('active'));
         btn.classList.add('active');
-        const id = btn.dataset.tab;
-        tabPanels.forEach(p => p.classList.add('hidden'));
-        document.getElementById(id).classList.remove('hidden');
+        showTab(btn.dataset.tab);
       });
     });
-  </script>
+
+    // On load, make sure the "active" button's panel is shown
+    const activeBtn = document.querySelector('.tab-btn.active');
+    if (activeBtn) showTab(activeBtn.dataset.tab);
+  });
+</script>
+
+
 </body>
 </html>

@@ -633,4 +633,11 @@ h3 {
   }
 }
 
+/* Tabs visibility */
+.tab-panels { margin-top: 1.25rem; }
+.tab-panel.hidden { display: none; }
+
+/* Ensure panels default to visible unless hidden is present */
+.tab-panel { display: block; }
+.tab-panel.hidden { display: none; }
 
