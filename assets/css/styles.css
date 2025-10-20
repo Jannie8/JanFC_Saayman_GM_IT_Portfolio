@@ -603,7 +603,7 @@ h3 {
   display: flex;
   gap: 1rem;
   width: max-content;            /* allow long row */
-  animation: scrollLine 40s linear infinite;
+  animation: scrollLine 60s linear infinite;
   will-change: transform;        /* smoother on low-end devices */
 }
 
