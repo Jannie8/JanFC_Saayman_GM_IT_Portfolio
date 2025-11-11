@@ -739,8 +739,316 @@
 
           <!-- Hagenberg -->
           <div id="tab-hagenberg" class="tab-panel hidden">
-            
-            <p>Austria portfolio</p>
+          
+            <h3>Internet of Things – Hagenberg</h3>
+
+            <!-- Week 1 -->
+            <article class="week-block">
+              <h4>Week 1 – Arrival in Austria & Building the Foundation</h4>
+              <div class="week-text">
+                <h5>Null-Measurement</h5>
+                <p>
+                 As our time in Spain came to an end, it was finally time for the next adventure — Internet of Things (IoT) in Hagenberg, Austria. I was both nervous and excited, knowing this would be the most technical and hands-on module yet. Before arriving, I had basic knowledge of IoT concepts from simulations and theoretical exercises, but I’d never connected and coded real sensors myself. My goal for the next three weeks was to truly understand how to collect, transmit, and visualise sensor data in a complete IoT system — from hardware to dashboard.
+                </p>
+                <p>
+                  Our trip to Austria already felt like a test of endurance. Our plane was delayed, and our train from Vienna to Linz was scheduled just 30 minutes after landing. We sprinted through the airport, bags flying, trying to find the train station we’d never seen before. We jumped on board just as the doors closed — pure movie timing. By the time we reached Hagenberg, it was night, cold, and quiet. Luckily, two friendly local students found us on the bus and helped us find our dorm rooms.
+                </p>
+                <p>
+                 The weekend was spent settling in — unpacking, grocery shopping, and making our rooms feel like home for the next three weeks. We travelled to Linz, a nearby town that felt like something out of a postcard. I was amazed by its charm and of course, we couldn’t resist visiting the Haribo sweets shop. After restocking essentials, we explored the forest next to campus, where we discovered an old, abandoned house that looked straight out of a fairy tale. We jokingly named it the witch’s house — though at the time, we hadn’t met her… yet.
+                </p>
+                
+
+                <h5>Project Contribution</h5>
+                <p>
+                  Classes began with Volker, who introduced the IoT module and explained that our goal was to build a fully functional system — from sensor data to live dashboard. This immediately became my favourite module so far. Unlike others, it was completely hands-on and deeply practical.
+                </p>
+                <p>
+                  Volker gave us an overview of the process:
+                  <ul>
+                    <li>Connect a set of sensors (pH, temperature, TDS, GPS, turbidity) to an ESP32 microcontroller.</li>
+                    <li>Use LoRaWAN to send the readings to The Things Network (TTN).</li>
+                    <li>Format the data in JSON uplink payloads.</li>
+                    <li>Set up a Raspberry Pi as a receiver, hosting our database.</li>
+                    <li>Connect the database to a backend API and frontend dashboard for live data visualisation.</li>
+                  </ul>
+                  It sounded like a mountain of work — and it was.
+                </p>
+                <p>
+                  We started by wiring all our sensors onto a temporary breadboard to ensure they worked. Each sensor required its own code for calibration and testing, which we wrote in C++ using PlatformIO. I handled most of the sensor coding — starting with pH, then GPS, TDS, and the others. Seeing real readings appear in the terminal for the first time was surreal. I’d only ever simulated this before, and now the pH probe was reading actual values from test tubes!
+                </p>
+                <p>
+                  We had a few challenges early on. I initially wrote a single .cpp file for all sensors, but Volker explained that each sensor needed its own .h and .cpp files, linked through a main EnvironmentalMonitor.cpp. Once we restructured the project, everything began to work more smoothly.
+                </p>
+                <p>
+                  Georgi set up the Raspberry Pi, installing the database and preparing it to receive incoming sensor data. Meanwhile, Tamerlan worked separately, often disconnected from the group, which made coordination tricky. Still, I pushed forward with the coding, determined to get everything working.
+                </p>
+                <p>
+                  Volker was extremely supportive, even sharing his own example code for the LoRa integration. By the end of Week 1, I had successfully written and uploaded working code for all our sensors. It was one of the proudest moments of the module — watching the system respond perfectly.
+                </p>
+                <p>
+                  That week also brought memorable experiences outside the lab. The university treated us to a welcome dinner at Burgerei, where I had the best beef ribs of my life. Volker, Jan, and Christina joined us — their friendliness made us feel immediately at home.
+                </p>
+                <p>
+                  We also visited the Ars Electronica Center in Linz — a futuristic museum showcasing robotics, AI, and digital art. The 3D show at the start blew my mind, and I was especially fascinated by the AI exhibits — from weather tracking to deepfake demonstrations. On the way back, we got to ride in Jan’s Tesla, which he put into autopilot just to show us. It was slightly terrifying but unforgettable — and he ended the day with McDonald’s for everyone.
+                </p>
+                
+
+                <h5>Cultural Awareness</h5>
+                <p>
+                  Austria was pure beauty in autumn. Every walk looked like a painting — gold leaves, misty mornings, and quiet towns. We spent evenings exploring Hagenberg and taking long walks in the forest. One night, we stumbled upon a church wrapped in orange leaves and stood there just admiring it.
+                </p>
+                <p>
+                  Our downtime became just as important as our classwork. We had card game nights, forest walks, and movie nights in a massive lecture hall that looked like a cinema. It became our secret hangout spot. I also started hiking up the nearby hill for sunrise — watching the fog roll over the valley was unreal.
+                </p>
+                <p>
+                  Over the weekend, we celebrated Rourke’s birthday. We woke him up early with cake and candles before heading out on a trip to Gmunden — one of the most beautiful places I’ve ever seen. Surrounded by lakes and mountains, we rode a cable car up the slopes, ate lunch overlooking the clouds, and I even tried the Austrian schnitzel for the first time (spoiler: life-changing). There was a mountain slide that looked too fun to ignore, so yes — I did it, twice.
+                </p>
+                <p>
+                  That night, we threw Rourke a surprise birthday party in the dorm’s communal kitchen. The week ended with dinner at our new favourite restaurant, Salz & Pfeffer, where I had chicken pasta with cheese — a meal I’d soon be ordering almost every night.
+                </p>
+                
+
+                <h5>Reflection – What? So What? Now What?</h5>
+                <h6>What?</h6>
+                <p>
+                  Week 1 was filled with hands-on learning, new coding challenges, and cultural adventures. I wired and coded all our sensors, connected them to the ESP32, and verified their readings. We began setting up our full IoT architecture and got our Raspberry Pi running.
+                </p>
+                <h6>So What?</h6>
+                <p>
+                  This week was a turning point. For the first time, I saw how all the theory I’d learned in software and networking could connect in one physical system. Every bug or wiring mistake became a lesson in patience and problem-solving. I also realised how much I enjoy hardware work — seeing something physical come alive through code.
+                </p>
+                <h6>Now What?</h6>
+                <p>
+                  Moving into Week 2, I wanted to build on this foundation by learning how to send our data into the cloud, store it in a database, and connect it to a dashboard. Personally, I also aimed to keep the same curiosity alive — balancing technical work with small adventures and moments that remind me why I love this program.
+                </p>
+              </div>
+
+              <div class="photo-slider">
+                <div class="strip">
+                  <img src="images/Week 7/1.jpg" alt="" />
+                  <img src="images/Week 7/2.jpg" alt="" />
+                  <img src="images/Week 7/3.jpg" alt="" />
+                  <img src="images/Week 7/4.jpg" alt="" />
+                  <img src="images/Week 7/5.jpg" alt="" />
+                  <img src="images/Week 7/6.jpg" alt="" />
+                  <img src="images/Week 7/7.jpg" alt="" />
+                  <img src="images/Week 7/8.jpg" alt="" />
+                  <img src="images/Week 7/9.jpg" alt="" />
+                  <img src="images/Week 7/10.jpg" alt="" />
+                  <img src="images/Week 7/11.jpg" alt="" />
+                  <img src="images/Week 7/12.jpg" alt="" />
+                  <img src="images/Week 7/13.jpg" alt="" />
+                  <img src="images/Week 7/14.jpg" alt="" />
+                  <img src="images/Week 7/15.jpg" alt="" />
+                  <img src="images/Week 7/16.jpg" alt="" />
+                  <img src="images/Week 7/17.jpg" alt="" />
+                  <img src="images/Week 7/18.jpg" alt="" />
+                  <img src="images/Week 7/19.jpg" alt="" />
+                  <img src="images/Week 7/20.jpg" alt="" />
+                  <img src="images/Week 7/21.jpeg" alt="" />
+                  <img src="images/Week 7/22.jpg" alt="" />
+                  <img src="images/Week 7/23.jpg" alt="" />
+                  <img src="images/Week 7/24.jpeg" alt="" />
+                  <img src="images/Week 7/25.jpg" alt="" />
+                </div>
+              </div>
+            </article>
+
+            <!-- Week 2 -->
+            <article class="week-block">
+              <h4>Week 2 – Soldering, Struggles & Salzburg Adventures</h4>
+              <div class="week-text">
+
+                <h5>Null-Measurement</h5>
+                <p>
+                  Coming into Week 2, I finally felt more confident with our sensors and code, but I still had major gaps in understanding data transfer and cloud communication. I’d never written an MQTT connection script before, and while I understood the idea of transmitting data via LoRaWAN to The Things Network (TTN), the actual coding felt intimidating. I also knew that working with a team where not everyone was equally engaged might bring new challenges — something I’d need to handle with patience and focus.
+                </p>
+                <p>
+                  My personal goal for the week was clear: learn to connect every piece of the puzzle. I wanted to understand how sensor readings move from the physical device all the way into a database and, eventually, a live dashboard.
+                </p>
+
+                <h5>Project Contribution</h5>
+                <p>
+                 This week we started easing into the complex parts of the IoT pipeline. The goal was to code the uplink payload for TTN so that our sensor data could be formatted correctly before being sent to the cloud. Once that was done, it was time to set up the database on our Raspberry Pi.
+                </p>
+                <p>
+                 I wrote the initial SQL script and sent it to Tamerlan to implement, but as had become a pattern, he didn’t contribute much during class. That meant more work for the rest of us, and since Jana was absent for one day, the workload grew heavier. Still, Georgi and I decided to push forward.
+                </p>
+                <p>
+                  My main task became writing the MQTT code — the bridge that would send our data from TTN to the Raspberry Pi database. Georgi worked on database setup, while I handled the coding side. We spent two long days trying to make it work, referencing code examples from Volker’s GitHub repository and debugging endless compile errors.
+                </p>
+                <p>
+                  Nothing seemed to connect correctly. The data wasn’t being received, and we couldn’t figure out why. Eventually, after two days of trial and error, we asked Volker for help. Within ten minutes, he found the issue — one line of code in our MQTT connection string was wrong. I’ll never forget how relieved we all felt when he hit upload, and suddenly the console showed successful data transmission. We cheered, and Volker just smiled and said, “Now you know why debugging exists.”
+                </p>
+                <p>
+                 With the data flow finally working, Georgi finished refining the database structure while I began soldering the final sensor system onto one clean breadboard. I spent hours connecting the PH, TDS, GPS, and temperature sensors neatly, triple-checking each connection before applying heat. It was slow, detailed work, but I loved every second — there’s something satisfying about building something physical that actually works.
+                </p>
+                <p>
+                  By Thursday we learned that there wouldn’t be class on Thursday and Friday, as those days were set aside for exploring Austria. That meant I had time to continue soldering over the weekend. I didn’t mind at all — it felt peaceful to work at my own pace, music playing, perfecting every connection.
+                </p>
+                <p>
+                  I won’t lie — it often felt like I was carrying a big part of the technical work, but rather than feeling frustrated, I saw it as an opportunity to challenge myself and grow. By the end of the week, I had learned so much about circuit wiring, soldering, and IoT systems that I knew I’d leave Austria with real hands-on experience.
+                </p>
+
+                <h5>Cultural Awareness</h5>
+                <p>
+                  After so much intense coding, I needed a break — and luckily, the week offered plenty of moments for that.
+                </p>
+                <p>
+                  One evening, Rourke and I treated ourselves to dinner at a nearby restaurant for their 11,50 € special — soup and schnitzels. We both felt proud of how far we’d come and toasted to our progress.
+                </p>
+                <p>
+                  Then came Thursday — our first real day off. I spent most of it catching up on sleep and finishing small soldering tasks. That night, we joined Jana and her friends at a nearby apartment for a Halloween party. I dressed as a Squid Game guard, and we played round after round of beer pong — which, for the record, I won more than once 😄. It was a great night filled with laughter, dancing, and seeing how Austrians celebrated Halloween — a perfect cultural contrast to home.
+                </p>
+                <p>
+                 A few hours later — running on barely any sleep — we woke up at 4:30 a.m. to catch an early train to Salzburg. The South African group had planned a full day of exploration, and I didn’t want to miss it. As soon as we arrived, the first stop was — you guessed it — McDonald’s breakfast, my go-to energy boost.
+                </p>
+                <p>
+                  The rest of the day was pure adventure. We hiked five kilometres up the mountains, wandered through old streets, and explored the famous Salzburg Fortress where I saw the statue of Mozart. The whole town looked like something out of a painting, surrounded by mountains and music. Later, we browsed through local markets, bought souvenirs, and found a quiet spot high above the city where we just sat and took in the view. It was one of those peaceful moments where time slowed down, and I felt genuinely grateful to be there.
+                </p>
+                <p>
+                  Saturday became my recovery day — I slept until the afternoon and watched series the rest of the day. By Sunday, it was back to business. I spent the entire day soldering, completely in my element. With music playing in the background, I carefully connected wire after wire, fixing mistakes, re-soldering wrong ports, and testing each sensor one by one. I used my old temporary board as a reference and worked until it was perfect. By the end of the day, I was exhausted — but unbelievably proud. Everything worked flawlessly, and my soldering looked professional.
+                </p>
+
+                <h5>Reflection – What? So What? Now What?</h5>
+                <h6>What?</h6>
+                <p>
+                  Week 2 revolved around connecting our IoT system to the network and database. I coded the MQTT communication, tested the uplink to TTN, and soldered our final sensor setup. The week also included personal milestones — a Halloween party, a Salzburg excursion, and learning how to balance work and rest.
+                </p>
+                <h6>So What?</h6>
+                <p>
+                 This week taught me the value of persistence and self-learning. Debugging the MQTT issue was frustrating, but it showed me how patience and problem-solving pay off. Soldering the system gave me tangible skills that go beyond coding — it taught me precision and discipline. I also learned to enjoy small wins, like celebrating progress with friends or exploring new places to recharge.
+                </p>
+                <h6>Now What?</h6>
+                <p>
+                 Heading into Week 3, I wanted to finish strong by completing the full data pipeline: connecting the Raspberry Pi database to the backend and dashboard. Personally, I also wanted to maintain balance — to keep learning intensely while still enjoying the once-in-a-lifetime experiences this program offers.
+                </p>
+              </div>
+
+              <!-- Photos: Week 2 -->
+              <div class="photo-slider">
+                <div class="strip">
+                  <img src="images/Week 8/1.jpg" alt="">
+                  <img src="images/Week 8/2.jpg" alt="">
+                  <img src="images/Week 8/3.jpg" alt="">
+                  <img src="images/Week 8/4.jpg" alt="">
+                  <img src="images/Week 8/5.jpg" alt="">
+                  <img src="images/Week 8/6.jpg" alt="">
+                  <img src="images/Week 8/7.jpg" alt="">
+                  <img src="images/Week 8/8.jpg" alt="">
+                  <img src="images/Week 8/9.jpg" alt="">
+                  <img src="images/Week 8/10.jpg" alt="">
+                  <img src="images/Week 8/11.jpg" alt="">
+                  <img src="images/Week 8/12.jpg" alt="">
+                  <img src="images/Week 8/13.jpg" alt="">
+                  <img src="images/Week 8/14.jpeg" alt="">
+                  <img src="images/Week 8/15.jpeg" alt="">
+                  <img src="images/Week 8/16.jpeg" alt="">
+                </div>
+              </div>
+            </article>
+
+            <!-- Week 3 -->
+            <article class="week-block">
+              <h4>Week 3 – Finishing Touches, Troubleshooting & Farewell to Austria</h4>
+              <div class="week-text">
+
+                <h5>Null-Measurement</h5>
+                <p>
+                  Coming into the final week in Hagenberg, I felt confident with hardware, sensors, and the basics of data transmission — but I still lacked experience connecting a backend and frontend to display live data. I’d written pieces of code for each stage, but never seen the whole pipeline come together. My goal for Week 3 was to bring everything full circle: sensors → LoRaWAN → TTN → Raspberry Pi → database → backend → dashboard. I also wanted to end the week knowing that I had given my absolute best, both technically and personally.
+                </p>
+
+                <h5>Project Contribution</h5>
+                <p>
+                 This week began with a clear mission: connect the database to the backend, then to the frontend, so that our live sensor data would finally display on the website. Georgi took initiative to write the backend logic and worked closely with Alec, who had already completed a similar setup for his team. His support and initiative really helped us get moving faster.
+                </p>
+                <p>
+                 As Georgi worked on the backend, I discovered a problem — one of our sensors was missing. The turbidity sensor, which measures water clarity, hadn’t been added to our system yet. That meant I had to solder the new sensor, write all the necessary code for it, and integrate it into every level of the system — the ESP32, MQTT, LoRa, and TTN uplink payloads. I also needed to modify our Raspberry Pi database to include a new table specifically for turbidity readings.
+                </p>
+                <p>
+                  At first, the soldering seemed straightforward — I connected it as usual, powered it up, and… nothing. All the sensors went dark. No power, no output. Panic mode activated. After some checking, I realised something was seriously wrong, so I asked Volker for help. He took one look at the board and immediately spotted the issue — I had soldered the turbidity sensor onto the same power line as the LoRaWAN module, which caused the system to short out.
+                </p>
+                <p>
+                  Together, we carefully fixed the issue by drilling small holes through the board to separate the connections and isolate the lines. It was a delicate process — one wrong move and we’d have to rebuild the entire board. When we finally powered it back on and saw the lights flicker again, I felt huge relief.
+                </p>
+                <p>
+                  But then came another issue: as soon as we uploaded the updated code, the ESP32 crashed into a brownout loop, showing the same error repeatedly. Me and Volker spent almost two hours testing every sensor with a voltage meter, unplugging and replugging components, trying to find the cause. In the end, it turned out the ESP32 itself was faulty. We swapped it out for a new one, re-uploaded the code, and in one minute — everything worked perfectly. We both burst out laughing, and Volker jokingly tossed the broken ESP32 across the room like it was cursed. That moment captured exactly what this module was all about — problem-solving, persistence, and a lot of humour along the way.
+                </p>
+                <p>
+                  After that, I worked on finalising our sensor system enclosure. The goal was to make it fully waterproof, so I spent hours measuring and drilling precise holes for each sensor cable, as well as for the power connection. Some sensors, like the turbidity one, needed bigger openings, so Volker bought us extra drill bits. Once everything was positioned, I used a glue gun to seal all the holes, ensuring no water could enter. It was a delicate balance between neatness and practicality, but in the end, it looked perfect.
+                </p>
+                <p>
+                  When I finally powered it up to test it inside the box, I held my breath — and it worked flawlessly. Seeing the live data flow through TTN and into our dashboard was the most satisfying moment of the entire IoT module.
+                </p>
+                <p>
+                  With everything finished, we spent the last few days preparing for our final presentation. We created slides summarising the entire three-week journey — from wiring and coding to database setup and frontend display. During the presentation, we demonstrated our live dashboard to a class of students and lecturers, explaining how each component worked together. The feedback was extremely positive, especially for the hands-on implementation and the robustness of our system.
+                </p>
+                
+
+                <h5>Cultural Awareness</h5>
+                <p>
+                  Outside the classroom, Week 3 was filled with beautiful moments that made saying goodbye to Austria a little harder.
+                </p>
+                <p>
+                  After completing our final project setup, our group decided to celebrate with one last dinner at our favourite restaurant nearby — the same one with the 11,50 € schnitzel special. This time, we had pumpkin soup to start, and as always, the food was delicious. It felt symbolic — closing the chapter exactly where we had spent so many evenings before.
+                </p>
+                <p>
+                  Friday was our last free day in Hagenberg. While Marco and Musti visited a concentration camp, I decided to stay behind and start packing for Belgium. It felt strange to see my room slowly empty again, knowing another adventure awaited but also that one was ending. I spent the day relaxing, watching series, and enjoying the calm after three weeks of hard work.
+                </p>
+                <p>
+                  That evening, when the others returned, we went for one last walk through the forest, following a new path that led to a wide open green hill overlooking the town. The view was incredible — rolling fields and orange leaves under a pink sunset. Standing there, Rourke suddenly turned to me with an idea: “We should roll down the hill like we did as kids.”
+                </p>
+                <p>
+                  Before I could even respond, he was already rolling — and of course, I joined him. The grass was damp, and I couldn’t stop once I started. Every time I tried to slow down, I just kept rolling faster, laughing uncontrollably. It was one of those silly, spontaneous moments that make memories you’ll never forget.
+                </p>
+                <p>
+                  That night, we had one final movie night in the big lecture hall we’d been using as our cinema. It felt like a perfect full circle — the same space where we’d bonded in the first week, now the setting for our last night together in Austria.
+                </p>
+                <p>
+                  Saturday morning arrived too quickly. We had decided to take the scenic 11-hour train route to Belgium instead of flying. It wasn’t the most efficient choice, but it turned out to be peaceful and relaxing — a long, quiet journey through the Austrian countryside, watching mountains fade into fields, and reflecting on how much we’d grown over the past three weeks.
+                </p>
+
+                <h5>Reflection – What? So What? Now What?</h5>
+                <h6>What?</h6>
+                <p>
+                 Week 3 was all about finishing, fixing, and finalising. I soldered the turbidity sensor, solved hardware and code issues, and built a waterproof enclosure for our system. Together with Georgi, we successfully connected our backend to the dashboard, and we presented a fully functioning IoT prototype to our lecturers.
+                </p>
+                <h6>So What?</h6>
+                <p>
+                  This week taught me that real engineering isn’t about perfection — it’s about perseverance. When everything went wrong, from short circuits to brownout loops, I didn’t give up. I learned to troubleshoot methodically, ask for help when needed, and celebrate the small victories. I also saw how teamwork can shift — where one person’s technical strength and another’s organisation both contribute equally.
+                </p>
+                <h6>Now What?</h6>
+                <p>
+                  Leaving Austria, I felt proud of the growth I achieved — not just in technical skills but in patience, problem-solving, and resilience. I now understand IoT on a much deeper level — from coding to hardware to data pipelines — and I know these lessons will directly influence how I approach future systems. Personally, I also realised that balance matters — that celebrating your progress and laughing through the chaos are just as important as the work itself.
+                </p>
+              </div>
+
+              <!-- Photos: Week 3 -->
+              <div class="photo-slider">
+                <div class="strip">
+                  <img src="images/Week 9/1.jpg" alt="">
+                  <img src="images/Week 9/2.jpg" alt="">
+                  <img src="images/Week 9/3.jpg" alt="">
+                  <img src="images/Week 9/4.jpg" alt="">
+                  <img src="images/Week 9/5.jpg" alt="">
+                  <img src="images/Week 9/6.jpg" alt="">
+                  <img src="images/Week 9/7.jpg" alt="">
+                  <img src="images/Week 9/8.jpg" alt="">
+                  <img src="images/Week 9/9.jpg" alt="">
+                  <img src="images/Week 9/10.jpg" alt="">
+                  <img src="images/Week 9/11.jpg" alt="">
+                  <img src="images/Week 9/12.jpg" alt="">
+                  <img src="images/Week 9/13.jpeg" alt="">
+                  <img src="images/Week 9/14.jpeg" alt="">
+                  <img src="images/Week 9/15.jpeg" alt="">
+                </div>
+              </div>
+            </article>
+
+            <div>
+              <iframe src="https://docs.google.com/spreadsheets/d/e/2PACX-1vQP9sbFqseVap2bdty-I7d-zDQsDvGmLcrG7bA2ovd7UGke_qrAbcD4rncIHlYaY4yVz8rs3ubD5QVn/pubhtml?widget=true&amp;headers=false" width="100%" height="600" style="border:0" allowfullscreen></iframe>
+            </div>
+
           </div>
 
           <div id="tab-hasselt" class="tab-panel hidden">
